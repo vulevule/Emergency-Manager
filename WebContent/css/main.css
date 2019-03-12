@@ -1,0 +1,334 @@
+/*
+	Layout
+	Zamišljena širina celog sadržaja je 988px.
+		Sastoji se iz info sekcije i sadržaja (entry) iznad kojeg je naslov.
+		
+	+--------+-+----------------------+------------+         
+	|        | |   NASLOV (700px)     |            |         
+	|        +-+----------------------+-+----------+         
+	|        | |                      | |          |         
+	|  INFO  | |                      | |  META    |         
+	|  124px | |   MAIN (700px)       | |  124px   |         
+	|        | |                      | |          |         
+	|        | |                      | |          |         
+	+--------+-+----------------------+-+----------+          
+	
+	           |<--        CONTENT(844px)       -->| 
+  |<--        PAGE (988px)                    -->| 
+			
+	Zamišljena širina info dela je 124 px.
+	razmak između info i content (naslov) dela je 20px.
+	širina naslova je 700 px.
+	širina sadržaja (content) je 844 px.
+		Sastoji se iz main sekcije i meta sekcije.
+		main sekcija je široka 700px.
+		razmak između je 20 px.
+		meta sekcija je 124px.
+	
+	SVE DIMENZIJE PIŠEMO RELATIVNO! OVO JE SAMO NACRT!
+	
+*/
+
+#page {
+	margin: 0 auto;
+	padding: 0 1em;
+	max-width: 95%;		/* 988px / 16px = 61.75em */
+	
+}
+
+/* h1 { */
+/* 	margin-left: 14.575%;	144px / 988px = 0.14575 */
+/* 	width: 70.85%;			  700px / 988px = 0.7085 */
+	
+/* 	font-size: 3em;			  48px / 16px = 3em */
+/* 	line-height: 1.14583;	55px / 48px = 1.14583 */
+/* } */
+
+#myHeader {
+	width: 100%;
+	height: 120px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	display: flex;
+}
+
+#appName {
+	width: 25%;
+	height: 100%;
+	background-color: rgb(255,0,0,0.3);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#helloSection {
+	width: 50%;
+	height: 100%;
+	background-color: rgb(0,0,255,0.3);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#userOptions {
+	width: 25%;
+	height: 100%;
+	background-color: rgb(0,0,0,0.1);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerText {
+	font-size: 1.5em;
+}
+
+#roleText {
+	
+}
+
+#userButtonsGroup {
+	display: inline-block;
+	margin-left: 8px;
+	width: 110px;
+}
+
+button.userButton {
+	width: 100%;
+	padding: 8px;
+	margin: 7px 0;
+}
+
+img#loggedUserThumbnail {
+	float: left;
+	object-fit: cover;
+	height: 90px;
+	width: 90px;
+}
+
+.entry {
+	float: left;
+	width: 100%;
+	display: flex;
+}
+
+/* .entry h2 { */
+/* 	float: right; */
+/* 	width: 85.425%;		    844px / 988px = 0.85425 */
+	
+/* 	font-size: 1.5em;			24px / 16px = 1.5em */
+/* } */
+
+/* Levi panel */
+.entry .info {
+	float: left;
+	display: inline-block;
+	
+	margin-right: 8px;
+	
+	width: 20.194%;		      /* 124px / 988px = .12551 */
+	
+	font-size: 0.6875em;	  /* 11px / 16px = 0.6875em */
+	font-weight: bold;
+	line-height: 1.45455;	  /* 16px / 11px = 1.45455 */
+	
+	background-color: rgb(0,255,0,0.4);
+}
+
+.entry .content {
+	display: flex;
+	flex: 1;
+	width: 70%;		/* 844px / 988px = 0.85425 */
+	
+}
+
+.usersAndTers {
+	
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.entry .main, .entry .usersContainer, .entry .terContainer {
+	float: left;
+		/* 700px / 844px = 0.82938 */
+	text-align: left;
+	
+	flex: 1;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	
+	font-size: 1em; /* 16px */
+	line-height: 1.375; /* 22px / 16px = 1.375 */
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	
+	overflow: auto;
+	border: 1px solid gray; 
+}
+
+.main {
+	max-height: 700px;
+}
+
+.usersContainer, .terContainer {
+	max-height: 350px;
+}
+
+.dUserName, .dTerName {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.dUserEmail, .dTerSize {
+	font-size: 0.8em;
+}
+
+.oneUserContainer, .oneTerContainer {
+	padding: 5px;
+	margin: 5px;
+	
+	background-color: #f1f1f1;
+	position: relative;
+}
+
+.dUserPicture {
+	height: 100px;
+	width: 100px;
+}
+
+.emContainer {
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid black;
+}
+
+.pictureAndInfo, .oneUserContainer {
+	display: flex;
+	position: relative;
+}
+
+.emPicture, .commentPicture, .dUserPicture {
+	float: left;
+	object-fit: cover;
+}
+
+.emPicture {
+	height: 180px;
+	width: 230px;
+}
+
+.emPicture:hover, .emName:hover, .dUserPicture:hover, .commentPicture:hover {
+	cursor: pointer;
+    opacity: 0.8;
+}
+
+.emInfo, .commentInfo, .dUserInfo {
+	display: block;
+	width: 100%;
+	margin-left: 5px;
+}
+
+.emName {
+	font-size: 1.5em;
+	margin-left: 5px;
+}
+
+.emTime {
+	font-size: 1em;
+	margin-left: 5px;
+}
+
+.emVolunteer {
+	margin: 2px 0;
+}
+
+.emVolContainer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	margin-left: 5px;
+}
+
+.emChangeContainer {
+	display: none;
+}
+
+#archiveButton {
+	position: absolute;
+	bottom: 0;
+}
+
+.comment {
+	display: block;
+	width: 100%;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
+.commentSection {
+	display: none;
+	padding: 3px;
+	margin: 3px 3px 3px 5px;
+}
+
+.commentName {
+	font-size: 1em;
+	margin-left: 5px;
+}
+
+.commentUser {
+	font-size: 0.7em;
+	margin-left: 5px;
+}
+
+.commentPicture {
+	height: 60px;
+	width: 60px;
+}
+
+.commentText {
+	font-size: 0.7em;
+}
+
+.commentType {
+	display: inline-block;
+	width: 100%;
+	padding: 3px 3px;
+	margin: 00;
+	
+}
+
+.commentInput {
+	width: 92%;
+}
+
+.commentButton {
+	width: auto;
+	padding: 3px 5px;
+	margin: 2px 2px;
+	float: right;
+}
+
+/* Desni panel */
+.entry .meta {
+	float: right;
+	width: 14.692%;	/* 124px / 844px = 0.14692 */
+	
+	font-size: 0.6875em;	/* 11px / 16px = 0.6875em */
+	font-weight: bold;
+	line-height: 1.45455;	/* 16px / 11px = 1.45455 */
+	
+}
+
+#mapCanvas, #emLocMap {
+    width: 100%;
+    height: 400px;
+}
+
+#emLocMap {
+	margin-top: 20px;
+}

@@ -1,0 +1,106 @@
+
+<div ng-controller="loginController">
+	<div class="welcomeDiv">
+		<h1 class="welcome1">Welcome to Emergency Manager</h1>
+		<p class="welcome2">Please log in or register first :)</p>
+		<div class="logRegButtons">
+			<button class="logRegBtn" id="loginBtn" ng-click="displayLogin()" >Log in</button>
+			<button class="logRegBtn" id="registerBtn" ng-click="displayRegister()">Register</button>
+		</div>
+	</div>
+	
+	
+	
+	<div id="loginForm" class="modal">
+	  <form class="modal-content animate">
+	    <div class="imgcontainer">
+	      <span ng-click="hideLogin()" class="close" title="Close Modal">&times;</span>
+	      <img src="pictures/img_avatar.png" alt="Avatar" class="avatar" id="avatarImage">
+	    </div>
+	
+	    <div class="container">
+	      <label for="uname"><b>Username</b></label>
+	      <input type="text" placeholder="Enter Username" name="uname" id="usernamelogin" required>
+	
+	      <label for="psw"><b>Password</b></label>
+	      <input type="password" placeholder="Enter Password" name="psw" id="passwordlogin" required>
+	        
+	      <button ng-click="login()">Login</button>
+	      
+	      
+	    </div>
+	
+	    <div class="container" style="background-color:#f1f1f1">
+	      <button type="button" ng-click="hideLogin()" class="cancelbtn">Cancel</button>
+<!-- 	      <span class="psw"><a href="#">Forgot password?</a></span> -->
+	    </div>
+	  </form>
+	</div>
+	
+	<div id="registerForm" class="modal">
+	  <form class="modal-content animate">
+	    <div class="imgcontainer" >
+	      	<span ng-click="hideRegister()" class="close" title="Close Modal">&times;</span>
+	      	<img src="pictures/img_avatar2.png" alt="Avatar" class="avatar" id="displayImage" ng-click="openImageUpload()">
+	      	<br/>
+	    	<input type="file" id="uploadImage" accept="image/*" onchange="angular.element(this).scope().handleFile(event)">
+	    </div>
+	
+	    <div class="container">
+	    
+	    	<label for="firstname"><b>Name</b></label>
+	      	<input type="text" placeholder="Enter Name" name="firstname" id="firstname" required>
+	    	
+	    	<label for="surname"><b>Surname</b></label>
+	      	<input type="text" placeholder="Enter Surname" name="surname" id="surname" required>
+	    	
+	    	<label for="email"><b>Email</b></label>
+	      	<input type="text" placeholder="Enter Email" name="email" id="email" required>
+	      	
+	      	<label for="phone"><b>Cellphone</b></label>
+	      	<input type="text" placeholder="Enter Cellphone Number" name="phone" id="phone" required>
+	    	
+	    	<label for="territory"><b>Territory</b></label>
+	    	<br/>
+	      	<select name="territory" id="territory" class="terclass">
+	      		<option value="" selected disabled>Select Territory</option>
+	      		<option ng-repeat="t in territories" value="{{t.name}}">{{t.name}}</option>
+	      	</select>
+	    	<br/>
+	    	
+			<label for="uname"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="uname" id="username" required>
+			
+			<label for="psw"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="psw" id="password" required>
+			
+			<button ng-click="register()">Register</button>
+			
+			
+	    </div>
+	
+	    <div class="container" style="background-color:#f1f1f1">
+	      <button type="button" ng-click="hideRegister()" class="cancelbtn">Cancel</button>
+	    </div>
+	  </form>
+	</div>
+	
+</div>
+
+<script>
+
+// var modalLogin = document.getElementById('loginForm');
+// window.onclick = function(event) {
+//     if (event.target == modalLogin) {
+//     	modalLogin.style.display = "none";
+//     }
+// }
+
+// var modalReg = document.getElementById('registerForm');
+// window.onclick = function(event) {
+//     if (event.target == modalReg) {
+//     	modalReg.style.display = "none";
+//     }
+// }
+
+</script>

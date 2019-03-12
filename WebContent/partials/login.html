@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Emergency Manager - Log in</title>
+
+<link rel="stylesheet" href="styles/loginStyle.css">
+
+<script src="jquery-1.11.0.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$("div#loginDiv").hide();
+		$("div#regDiv").hide();
+		
+		$("button#loginBtn").click(function() {
+			$("div#regDiv").hide(300);
+			$("div#loginDiv").slideToggle(300);
+		});
+		
+		$("button#regBtn").click(function() {
+			$("div#loginDiv").hide(300);
+			$("div#regDiv").slideToggle(300);
+		});
+		
+		$("button#loginFormBtn").click(function() {
+			$.post("/Login",
+					{
+					jsonData:JSON.stringify({
+						username:$("input#usernameLogin").val(),
+						password:$("input#passwordLogin").val(),
+						
+					});
+					});
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="container">
+		<h1 align="center">Emergency Manager</h1>
+		<h3 align="center">Log in</h3>
+		<div id="buttons">
+			<button id="loginBtn">Log in</button>
+			<button id="regBtn">Register</button>
+		</div>
+		
+		<div id="loginDiv">
+			<!-- form action="Login" method="post"-->
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" name="usernameLogin"></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="passwordLogin"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="checkbox" name="remember">Remember me</td>
+				</tr>
+				<tr>
+					<td colspan="2"><button id="loginFormBtn">Log in</button></td>
+				</tr>
+			</table>
+			<!-- /form -->
+		</div>
+		
+		<div id="regDiv">
+			<form action="Register" enctype="multipart/form-data" method="post">
+				<table>
+					<tr>
+						<td>Username:</td>
+						<td><input type="text" name="username"></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><input type="password" name="password"></td>
+					</tr>
+					<tr>
+						<td>Retype password:</td>
+						<td><input type="password" name="password"></td>
+					</tr>
+					<tr>	
+						<td>Name:</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>	
+						<td>Surname:</td>
+						<td><input type="text" name="surname"></td>
+					</tr>
+					<tr>	
+						<td>Cellphone number:</td>
+						<td><input type="text" name="phoneNumber"></td>
+					</tr>
+					<tr>	
+						<td>Email:</td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>	
+						<td>Profile picture:</td>
+						<td><input type="file" name="picture"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" name="register" value="Register"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
